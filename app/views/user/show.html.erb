@@ -1,0 +1,17 @@
+<body>
+<% author = User.find(params[:user_name])%>
+  <h1> Page de: <%=author.pseudo%></h1>
+  <p> age : <%= author.age%> ans </p>
+  <p> Mail : <%= author.email%></p>
+  <p> Date de création : <%=author.created_at%> </p>
+  <p> Dernière mise a jour du profil : <%=author.updated_at%> </p>
+  <h4> description : </h4> 
+  <%= author.description %>
+  <h4> Posts : </h4>
+  <% author.gossips.each do |gossip| %>
+    <% link_gossip = "/gossip/"+gossip.id.to_s%>
+    <p><%= "Titre :" %>
+    <%= link_to "#{gossip.title}",link_gossip%> </p>
+    <p> <%=gossip.content%></p>
+    <% end %>
+</body>

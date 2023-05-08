@@ -1,0 +1,10 @@
+<body>
+<% gossip = Gossip.find(params[:gossip_title])%>
+  <h1> Titre: <%=gossip.title%></h1>
+  <% author = gossip.user %>
+  <% link_author = "/user/"+author.id.to_s%>
+  <p> Auteur : <%= link_to "#{author.pseudo}",link_author%></p>
+  <p> Date de création : <%=gossip.created_at%> </p>
+  <p> Dernière mise a jour : <%=gossip.updated_at%> </p> 
+  <%= gossip.content %>
+</body>

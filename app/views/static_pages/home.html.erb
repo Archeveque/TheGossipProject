@@ -1,0 +1,23 @@
+<h1>Accueil</h1>
+<h2>Bienvenue sur The Gossip Project</h2>
+<body>
+  <h5>LIste des gossips :</h5>  
+  <div class="container">
+    <div class="row row-cols-4">
+      <% Gossip.all.each do |gossip| %>
+      <% author = gossip.user %>
+      <% link_gossip = "/gossip/"+gossip.id.to_s%>
+      <% link_author = "/user/"+author.id.to_s%>
+      <div class ="col">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+          <h5 class="card-title"><%= link_to "#{gossip.title}",link_gossip%></h5>
+          <p> De : <%= link_to "#{author.pseudo}",link_author%> </p> 
+          <h6 class="card-subtitle mb-2 text-muted"><%=gossip.updated_at%></h6>
+          <p class="card-text"><%=gossip.content%></p>
+        </div>
+      </div>
+      </div>
+  <% end %>
+  </div> 
+ </body>
