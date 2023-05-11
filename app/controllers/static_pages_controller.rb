@@ -5,4 +5,6 @@ class StaticPagesController < ApplicationController
   end
   def team
   end
+  def gossip_create
+  end
 end

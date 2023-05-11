@@ -1,0 +1,17 @@
+<% user = User.find_by(id: session[:user_id])%>
+<h2>Bienvenue <%= user.pseudo %> !</h2>
+<%= link_to "Se déconnecter", "delete" %>
+<h4>Listes de tes Gossips</h4>
+<% user.gossips.each do |gossip| %>
+    <% link_gossip = "/gossip/"+gossip.id.to_s%>
+    <p><%= "Titre :" %>
+    <%= link_to "#{gossip.title}",link_gossip%> </p>
+    <p> <%=gossip.content%></p>
+    <% end %>
+    <h4>Listes de tes commentaires</h4>
+<% user.comments.each do |comment| %>
+    <%gossip = comment.gossip%>
+    <% link_gossip = "/gossip/"+gossip.id.to_s%>
+    <p> reponse a : <%= link_to "#{gossip.title}",link_gossip%> </p>
+    <p> <%=comment.content%></p>
+    <% end %>

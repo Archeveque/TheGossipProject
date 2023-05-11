@@ -1,17 +1,11 @@
-class UserController < ApplicationController
-  def show
-    puts "$" * 60
-    puts "Voici le message de l'URL :"
-    puts  params[:user_name]
-    puts "$" * 60
-  end
+class GossipsController < ApplicationController
   def new
   end
   def create
     puts "$" * 60
     puts "ceci est le contenu de params :"
     puts params
-    author = User.find_by(pseudo: params["user"])
+    author = User.find_by(id: session[:user_id])
     puts "$" * 60
     @gossip = Gossip.create(user: author,title:params["title"],content:params["content"] )
     puts @gossip

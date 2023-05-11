@@ -1,0 +1,12 @@
+<body>
+  <% gossip = Gossip.find(params[:gossip_title])%>
+  <form action="update" method="POST">
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+    <input type="hidden" name="id" value=<%=gossip.id%> >
+    <textarea type="text" name="user" required="required"><%= gossip.user.pseudo %></textarea>
+    <textarea type="text" name="title" required="required"><%= gossip.title %></textarea>
+    <textarea id="content" name="content" rows="4" cols="50"><%= gossip.content %></textarea>
+    <input type="submit" value="Valider">
+  </form>
+  <p><%= link_to "/!\Suprimer","delete"%> </p>
+</body>
