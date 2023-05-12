@@ -23,5 +23,6 @@ end
   end
   def delete
     session.delete(:user_id)
+    redirect_to"/login/new"
   end
 end
