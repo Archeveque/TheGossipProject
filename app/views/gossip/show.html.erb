@@ -11,6 +11,8 @@
   <p><%= link_to "Modifier",link_edit%> </p>
   <h3>Commentaires : </h3>
   <% (gossip.comments).each do |com| %>
+    <% author = com.user %>
+    <% link_author = "/user/"+author.id.to_s%>
     <% comment = Comment.find(com.id) %>
     <p><%= "Auteur :" %>
     <%= link_to "#{author.pseudo}",link_author%></p>

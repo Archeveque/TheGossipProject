@@ -1,13 +1,15 @@
 
 <form action="/gossips/create" method="POST">
-<div class="mb-3">
+<div class="mb-3 d-flex justify-content-center">
 <p>Titre
   <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
   <input type="text" name="title" required="required"></p>
   </div>
-  <p>Contenu</p>
-  <div class="mb-3">
-  <input type="text" name="content" required="required">
-  </div>
-  <button type="submit" class="btn btn-primary">Valider</button>
+  <p class="d-flex justify-content-center" >Contenu</p>
+  <p class="d-flex justify-content-center">
+  <textarea id="content" name="content" rows="10" cols="70"></textarea>
+  </p>
+  <p class="d-flex justify-content-center">
+  <input type="submit" value="Valider">
+  </p>
 </form>

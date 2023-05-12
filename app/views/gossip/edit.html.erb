@@ -1,12 +1,23 @@
 <body>
+ <h1 class="d-flex justify-content-center"> Modifier un Gossip </h1>
+<div class="d-flex justify-content-center">
   <% gossip = Gossip.find(params[:gossip_title])%>
+ 
   <form action="update" method="POST">
   <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+    <p>Auteur : 
     <input type="hidden" name="id" value=<%=gossip.id%> >
     <textarea type="text" name="user" required="required"><%= gossip.user.pseudo %></textarea>
-    <textarea type="text" name="title" required="required"><%= gossip.title %></textarea>
-    <textarea id="content" name="content" rows="4" cols="50"><%= gossip.content %></textarea>
+    Titre
+    <textarea type="text" name="title" required="required"><%= gossip.title %></textarea></p>
+    <p class="d-flex justify-content-center" > Contenu </p>
+    <p class="d-flex justify-content-center">
+    <textarea id="content" name="content" rows="10" cols="70"><%= gossip.content %></textarea>
+    </p>
+    <p class="d-flex justify-content-center">
     <input type="submit" value="Valider">
+    </p>
   </form>
-  <p><%= link_to "/!\Suprimer","delete"%> </p>
+  <p><%= link_to "!Suprimer!","delete"%> </p>
+  </div>
 </body>
